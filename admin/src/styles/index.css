@@ -10,10 +10,21 @@
 	}
 
 	body {
-		@apply overflow-x-hidden;
+		@apply overflow-x-hidden bg-[rgb(250,250,250)];
 	}
 
 	html {
 		@apply scroll-smooth;
 	}
+}
+
+::-webkit-scrollbar {
+	width: 7px;
+	height: 5px;
+	background-color: #cfcfcf6a;
+	border-radius: 50px;
+}
+::-webkit-scrollbar-thumb {
+	border-radius: 50px;
+	background-color: #9c9c9c5e;
 }
