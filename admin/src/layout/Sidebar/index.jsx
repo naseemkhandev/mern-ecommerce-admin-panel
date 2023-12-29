@@ -6,7 +6,7 @@ const Sidebar = () => {
 	const { pathname } = useLocation();
 
 	return (
-		<div className="w-72 py-6 px-3 bg-white shadow-2xl shadow-[#0000000e] h-screen overflow-y-auto fixed top-0 left-0">
+		<div className="w-[17rem] 2xl:w-72 py-8 px-3 bg-white shadow-2xl shadow-[#0000000e] h-screen overflow-y-auto fixed top-0 left-0">
 			<div className="text-xl font-semibold">
 				<h2>Naseem Store.</h2>
 			</div>
@@ -30,11 +30,11 @@ const Sidebar = () => {
 									<li key={link.path}>
 										<Link
 											to={link.path}
-											className={`w-full p-3.5 rounded-lg hover:bg-blue-600 hover:text-white flex items-center gap-1 ${
+											className={`w-full p-3.5 2xl:text-base text-[0.9rem] rounded-lg hover:bg-blue-600 hover:text-white flex items-center gap-1 ${
 												pathname === link.path && "bg-blue-600 text-white"
 											}`}
 										>
-											<span className="text-xl">
+											<span className="text-[1.1rem] 2xl:text-xl">
 												{pathname === link.path ? <ActiveIcon /> : <Icon />}
 											</span>
 											<span>{link.label}</span>
