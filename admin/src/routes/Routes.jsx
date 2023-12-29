@@ -8,6 +8,7 @@ const Transactions = lazy(() => import("../pages/Transactions"));
 
 import Loader from "../components/Loader";
 import RootLayout from "../layout/RootLayout";
+import NotFound from "../components/NotFound";
 
 const Routes = () => {
 	return (
@@ -46,6 +47,7 @@ const Routes = () => {
 							</RootLayout>
 						}
 					/>
+					<Route path="*" element={<NotFound />} />
 				</Router>
 			</Suspense>
 		</BrowserRouter>
