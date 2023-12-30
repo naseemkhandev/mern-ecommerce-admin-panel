@@ -1,14 +1,16 @@
-import { BiSolidDashboard, BiStore } from "react-icons/bi";
+import { BiSolidDashboard } from "react-icons/bi";
 import { RxDashboard } from "react-icons/rx";
 import { BiLineChart, BiSolidCoupon } from "react-icons/bi";
 import { GrLineChart } from "react-icons/gr";
 import { RiCoupon3Line } from "react-icons/ri";
 import { TbCoinRupee, TbCoinRupeeFilled } from "react-icons/tb";
-import { IoStorefront } from "react-icons/io5";
+
 import {
 	BsBarChart,
 	BsBarChartFill,
+	BsFillHandbagFill,
 	BsFillPieChartFill,
+	BsHandbag,
 	BsPieChart,
 	BsStopwatch,
 	BsStopwatchFill,
@@ -31,8 +33,8 @@ export const sidebar = [
 				path: "/admin/dashboard",
 			},
 			{
-				icon: BiStore,
-				activeIcon: IoStorefront,
+				icon: BsHandbag,
+				activeIcon: BsFillHandbagFill,
 				label: "products",
 				path: "/admin/product",
 			},
@@ -80,19 +82,19 @@ export const sidebar = [
 				icon: BsStopwatch,
 				activeIcon: BsStopwatchFill,
 				label: "stopwatch",
-				path: "/admin/apps/dashboard",
+				path: "/admin/apps/stopwatch",
 			},
 			{
 				icon: RiCoupon3Line,
 				activeIcon: BiSolidCoupon,
 				label: "coupon",
-				path: "/admin/apps/product",
+				path: "/admin/apps/coupon",
 			},
 			{
 				icon: TbCoinRupee,
 				activeIcon: TbCoinRupeeFilled,
 				label: "toss",
-				path: "/admin/apps/customer",
+				path: "/admin/apps/toss",
 			},
 		],
 	},

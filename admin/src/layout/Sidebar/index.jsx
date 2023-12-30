@@ -1,14 +1,18 @@
 import { Link, useLocation } from "react-router-dom";
 
 import { sidebar } from "../../constants/sidebar";
+import Search from "../../components/common/Search";
 
 const Sidebar = () => {
 	const { pathname } = useLocation();
 
 	return (
-		<div className="w-[17rem] 2xl:w-72 py-8 px-3 bg-white shadow-2xl shadow-[#0000000e] h-screen overflow-y-auto fixed top-0 left-0">
-			<div className="text-xl font-semibold">
-				<h2>Naseem Store.</h2>
+		<div className="w-full sm:w-80 md:w-[17rem] 2xl:w-72 py-8 px-3 bg-white shadow-2xl shadow-[#0000000e] h-screen overflow-y-auto fixed top-0 -left-full z-50 lg:left-0 no-scrollbar sm:scrollbar">
+			<div className="flex flex-col gap-3">
+				<h2 className="text-xl font-semibold">Naseem Store.</h2>
+				<div className="w-full md:hidden block">
+					<Search className="w-full" />
+				</div>
 			</div>
 
 			<ul className="flex flex-col gap-3 mt-8 capitalize">
