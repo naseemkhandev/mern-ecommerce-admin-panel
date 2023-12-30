@@ -1,3 +1,5 @@
+import data from "../../data/data.json";
+
 const CategoryItem = ({ item, value, color }) => {
 	return (
 		<div className="flex items-center gap-5 justify-between">
@@ -6,7 +8,10 @@ const CategoryItem = ({ item, value, color }) => {
 				<div className="w-36 h-2.5 relative">
 					<span className="bg-black/5 h-full w-full rounded-full block" />
 					<span
-						style={{ background: `${color}`, width: `${value}%` }}
+						style={{
+							background: `${color}`,
+							width: `${value}%`,
+						}}
 						className="h-full rounded-full block absolute top-0 left-0"
 					/>
 				</div>
@@ -24,11 +29,14 @@ const Inventory = () => {
 			</div>
 
 			<div className="flex flex-col gap-6">
-				<CategoryItem item="laptop" value={80} color="#06b6d4" />
-				<CategoryItem item="shoes" value={54} color="#2563eb" />
-				<CategoryItem item="cameras" value={72} color="#e11d48" />
-				<CategoryItem item="jeans" value={30} color="#7c3aed" />
-				<CategoryItem item="mobiles" value={90} color="#c026d3" />
+				{data.categories.map((category) => (
+					<CategoryItem
+						key={category.item}
+						item={category.item}
+						value={category.value}
+						color={`hsl(${category.value * 4},${category.value}%,50%)`}
+					/>
+				))}
 			</div>
 		</section>
 	);
