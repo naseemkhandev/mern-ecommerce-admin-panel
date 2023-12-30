@@ -43,7 +43,7 @@ const Dashboard = () => {
 				/>
 			</section>
 
-			<div className="flex w-full gap-3">
+			<div className="flex flex-col xl:flex-row w-full gap-3">
 				<div className="flex-[2] w-full">
 					<RevenueTransaction />
 				</div>

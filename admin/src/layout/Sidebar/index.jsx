@@ -7,7 +7,7 @@ const Sidebar = () => {
 	const { pathname } = useLocation();
 
 	return (
-		<div className="w-full sm:w-80 md:w-[17rem] 2xl:w-72 py-8 px-3 bg-white shadow-2xl shadow-slate-400/5 h-screen overflow-y-auto fixed top-0 -left-full z-50 lg:left-0 no-scrollbar">
+		<div className="w-full sm:w-80 md:w-[17rem] 2xl:w-72 py-8 px-3 bg-white shadow-2xl shadow-slate-400/5 min-h-screen h-full overflow-y-auto fixed top-0 -left-full z-50 lg:left-0 no-scrollbar">
 			<div className="flex flex-col gap-3">
 				<h2 className="text-xl font-semibold">Naseem Store.</h2>
 				<div className="w-full md:hidden block">
