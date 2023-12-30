@@ -28,12 +28,6 @@
 	border-radius: 50px;
 	background-color: #9c9c9c5e;
 }
-
-.scrollbar::-webkit-scrollbar {
-	width: 7px;
-	height: 5px;
-}
-
 .no-scrollbar::-webkit-scrollbar {
 	width: 0px;
 	height: 0px;

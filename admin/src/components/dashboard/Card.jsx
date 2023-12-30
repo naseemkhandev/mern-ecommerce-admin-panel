@@ -1,6 +1,6 @@
 import { HiTrendingDown, HiTrendingUp } from "react-icons/hi";
 
-const Card = ({ icon, iconBg, title, amount, percent, barColor }) => {
+const Card = ({ icon, iconBg, title, amount, value, percent, barColor }) => {
 	return (
 		<div className="p-5 flex flex-col gap-3 bg-white shadow-lg shadow-slate-400/5 bg-orange-500/10 rounded-lg select-none cursor-text">
 			<span
@@ -11,7 +11,9 @@ const Card = ({ icon, iconBg, title, amount, percent, barColor }) => {
 
 			<div className="flex items-center gap-1 justify-between">
 				<div className="flex flex-col gap-1">
-					<h3 className="text-2xl text-blue-900 font-semibold">{amount}</h3>
+					<h3 className="text-2xl text-blue-900 font-semibold">
+						{amount && "$"}{value}
+					</h3>
 					<p className="text-black/50 capitalize text-sm 2xl:text-base font-medium">
 						{title}
 					</p>
