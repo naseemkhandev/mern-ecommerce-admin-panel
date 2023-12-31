@@ -2,7 +2,13 @@ import { HiMiniChartBarSquare } from "react-icons/hi2";
 import { FaUserPlus } from "react-icons/fa6";
 import { RiShoppingBagFill } from "react-icons/ri";
 
-import { Card, Inventory, RevenueTransaction } from "../components/dashboard";
+import {
+	Card,
+	GenderRatio,
+	Inventory,
+	RevenueTransaction,
+	TopTransaction,
+} from "../components/dashboard";
 
 const Dashboard = () => {
 	return (
@@ -49,6 +55,15 @@ const Dashboard = () => {
 				</div>
 				<div className="flex-[1] w-full">
 					<Inventory />
+				</div>
+			</div>
+
+			<div className="flex flex-col xl:flex-row w-full gap-3">
+				<div className="flex-[1] w-full">
+					<GenderRatio />
+				</div>
+				<div className="flex-[2] w-full">
+					<TopTransaction />
 				</div>
 			</div>
 		</main>

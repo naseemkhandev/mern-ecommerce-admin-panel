@@ -23,7 +23,7 @@ const CategoryItem = ({ item, value, color }) => {
 
 const Inventory = () => {
 	return (
-		<section className="pt-5 pb-2 lg:h-full w-full xl:max-h-[24rem] xl:h-full 2xl:max-h-max flex flex-col gap-4 bg-white shadow-lg shadow-slate-400/5 bg-orange-500/10 rounded-lg cursor-text">
+		<section className="pt-5 pb-2 lg:h-full w-full xl:max-h-[24rem] xl:h-full 2xl:max-h-max flex flex-col gap-4 bg-white shadow-lg shadow-slate-400/5 bg-orange-500/10 rounded-lg">
 			<div className="px-5 pb-4 border-b">
 				<h2 className="font-semibold">Inventory</h2>
 			</div>

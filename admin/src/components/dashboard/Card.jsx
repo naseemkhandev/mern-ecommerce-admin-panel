@@ -40,7 +40,7 @@ const Card = ({ icon, iconBg, title, amount, value, percent, barColor }) => {
 				>
 					<p
 						style={{ color: barColor }}
-						className="font-semibold w-[90%] aspect-square flex items-center justify-center z-[1] bg-white rounded-full"
+						className="font-semibold w-[87%] aspect-square flex items-center justify-center z-[1] bg-white rounded-full"
 					>
 						{percent > 20 ? `+${percent}` : `-${percent}`}%
 					</p>
