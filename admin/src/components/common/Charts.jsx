@@ -96,7 +96,7 @@ export const BarChart = ({
 			},
 		],
 	};
-	return <Bar options={options} data={data} />;
+	return <Bar options={options} data={data} className="w-full" />;
 };
 
 export const DoughnutChart = ({

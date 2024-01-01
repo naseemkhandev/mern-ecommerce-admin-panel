@@ -9,7 +9,7 @@ const GenderRatio = () => {
 				<h2 className="font-semibold">Gender Ratio</h2>
 			</div>
 
-			<div className="relative flex flex-col gap-6 px-5 h-full">
+			<div className="relative px-5 h-full">
 				<DoughnutChart
 					labels={["Male", "Female"]}
 					data={[12, 8]}

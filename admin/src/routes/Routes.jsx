@@ -1,5 +1,9 @@
 import { Suspense, lazy } from "react";
-import { BrowserRouter, Routes as Router, Route } from "react-router-dom";
+import {
+	BrowserRouter as Router,
+	Routes as Routing,
+	Route,
+} from "react-router-dom";
 
 const Dashboard = lazy(() => import("../pages/Dashboard"));
 const Customers = lazy(() => import("../pages/Customers"));
@@ -12,9 +16,9 @@ import NotFound from "../components/NotFound";
 
 const Routes = () => {
 	return (
-		<BrowserRouter>
+		<Router>
 			<Suspense fallback={<Loader />}>
-				<Router>
+				<Routing>
 					<Route
 						path="/admin/dashboard"
 						element={
@@ -48,9 +52,9 @@ const Routes = () => {
 						}
 					/>
 					<Route path="*" element={<NotFound />} />
-				</Router>
+				</Routing>
 			</Suspense>
-		</BrowserRouter>
+		</Router>
 	);
 };
 

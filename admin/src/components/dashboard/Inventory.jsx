@@ -5,7 +5,7 @@ const CategoryItem = ({ item, value, color }) => {
 		<div className="flex items-center gap-5 justify-between">
 			<p className="capitalize font-medium">{item}</p>
 			<div className="flex items-center justify-end gap-2 w-full">
-				<div className="w-36 h-2.5 relative">
+				<div className="w-36 h-1.5 relative">
 					<span className="bg-black/5 h-full w-full rounded-full block" />
 					<span
 						style={{
@@ -23,7 +23,7 @@ const CategoryItem = ({ item, value, color }) => {
 
 const Inventory = () => {
 	return (
-		<section className="pt-5 pb-2 lg:h-full w-full xl:max-h-[24rem] xl:h-full 2xl:max-h-max flex flex-col gap-4 bg-white shadow-lg shadow-slate-400/5 bg-orange-500/10 rounded-lg">
+		<section className="pt-5 pb-2 lg:h-full w-full max-h-[36rem] xl:max-h-[24rem] xl:h-full 2xl:max-h-[36rem] flex flex-col gap-4 bg-white shadow-lg shadow-slate-400/5 bg-orange-500/10 rounded-lg">
 			<div className="px-5 pb-4 border-b">
 				<h2 className="font-semibold">Inventory</h2>
 			</div>

@@ -43,7 +43,35 @@
 			"amount": 5902,
 			"quantity": 5,
 			"discount": 900,
+			"status": "shipped"
+		},
+		{
+			"id": 1,
+			"amount": 5902,
+			"quantity": 5,
+			"discount": 900,
+			"status": "delivered"
+		},
+		{
+			"id": 1,
+			"amount": 5902,
+			"quantity": 5,
+			"discount": 900,
 			"status": "processing"
+		},
+		{
+			"id": 1,
+			"amount": 5902,
+			"quantity": 5,
+			"discount": 900,
+			"status": "shipped"
+		},
+		{
+			"id": 1,
+			"amount": 5902,
+			"quantity": 5,
+			"discount": 900,
+			"status": "delivered"
 		},
 		{
 			"id": 1,
@@ -64,35 +92,14 @@
 			"amount": 5902,
 			"quantity": 5,
 			"discount": 900,
-			"status": "processing"
+			"status": "shipped"
 		},
 		{
 			"id": 1,
 			"amount": 5902,
 			"quantity": 5,
 			"discount": 900,
-			"status": "processing"
-		},
-		{
-			"id": 1,
-			"amount": 5902,
-			"quantity": 5,
-			"discount": 900,
-			"status": "processing"
-		},
-		{
-			"id": 1,
-			"amount": 5902,
-			"quantity": 5,
-			"discount": 900,
-			"status": "processing"
-		},
-		{
-			"id": 1,
-			"amount": 5902,
-			"quantity": 5,
-			"discount": 900,
-			"status": "processing"
+			"status": "delivered"
 		}
 	]
 }

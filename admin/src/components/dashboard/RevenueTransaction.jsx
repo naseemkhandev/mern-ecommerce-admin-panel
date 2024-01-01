@@ -7,7 +7,7 @@ const RevenueTransaction = () => {
 				<h2 className="font-semibold">Revenue & Transaction</h2>
 			</div>
 
-			<div className="flex flex-col gap-6 px-5 h-full overflow-y-auto">
+			<div className="flex flex-col gap-6 px-5 h-full overflow-y-auto w-full">
 				<BarChart
 					data_1={[300, 400, 123, 433, 500, 903, 239, 129, 923, 432, 733, 732]}
 					data_2={[600, 100, 923, 123, 210, 123, 439, 929, 802, 823, 823, 212]}
