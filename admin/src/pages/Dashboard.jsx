@@ -50,10 +50,10 @@ const Dashboard = () => {
 			</section>
 
 			<div className="flex flex-col xl:flex-row w-full gap-3">
-				<div className="flex-[2] w-full">
+				<div className="flex-[2] 2xl:flex-[2] w-full">
 					<RevenueTransaction />
 				</div>
-				<div className="flex-[1] w-full">
+				<div className="flex-[1] 2xl:flex-[1.2] w-full">
 					<Inventory />
 				</div>
 			</div>
