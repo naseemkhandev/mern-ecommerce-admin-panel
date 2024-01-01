@@ -2,11 +2,56 @@ import { Link } from "react-router-dom";
 import { FiEdit } from "react-icons/fi";
 import { FaTrashCan } from "react-icons/fa6";
 import { IoIosAddCircle } from "react-icons/io";
+import { RiArrowLeftSLine, RiArrowRightSLine } from "react-icons/ri";
 
 import data from "../data/data.json";
+import { useMemo, useState } from "react";
+import { TiArrowSortedDown, TiArrowSortedUp } from "react-icons/ti";
 
 const Products = () => {
+	const [sortConfig, setSortConfig] = useState({ key: "", direction: "" });
+	const [currentPage, setCurrentPage] = useState(1);
+	const itemsPerPage = 8;
+
 	const columns = ["photo", "name", "price", "stock", "action"];
+
+	const sortedData = useMemo(() => {
+		let sortableData = [...data.products];
+		if (sortConfig.key && sortConfig.key !== "action") {
+			sortableData.sort((a, b) => {
+				if (a[sortConfig.key] < b[sortConfig.key]) {
+					return sortConfig.direction === "asc" ? -1 : 1;
+				}
+				if (a[sortConfig.key] > b[sortConfig.key]) {
+					return sortConfig.direction === "asc" ? 1 : -1;
+				}
+				return 0;
+			});
+		}
+		return sortableData;
+	}, [data.products, sortConfig]);
+
+	const indexOfLastItem = currentPage * itemsPerPage;
+	const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+	const currentItems = sortedData.slice(indexOfFirstItem, indexOfLastItem);
+
+	const paginate = (pageNumber) => {
+		setCurrentPage(pageNumber);
+	};
+
+	const requestSort = (key) => {
+		if (key !== "action") {
+			let direction = "asc";
+			if (
+				sortConfig &&
+				sortConfig.key === key &&
+				sortConfig.direction === "asc"
+			) {
+				direction = "desc";
+			}
+			setSortConfig({ key, direction });
+		}
+	};
 
 	return (
 		<section className="pt-4 pb-2 w-full flex flex-col gap-4 bg-white shadow-lg shadow-slate-400/5 bg-orange-500/10 rounded-lg">
@@ -30,31 +75,46 @@ const Products = () => {
 							{columns.map((column) => (
 								<th
 									key={column}
-									className="font-semibold capitalize p-3 text-zinc-700"
+									className="font-semibold capitalize pl-5 pb-3 text-zinc-700 cursor-pointer"
+									onClick={() => requestSort(column)}
 								>
-									{column}
+									<div className="flex items-center gap-1">
+										<span>{column}</span>
+
+										{sortConfig &&
+											sortConfig.key === column &&
+											column !== "action" && (
+												<span>
+													{sortConfig.direction === "asc" ? (
+														<TiArrowSortedUp />
+													) : (
+														<TiArrowSortedDown />
+													)}
+												</span>
+											)}
+									</div>
 								</th>
 							))}
 						</tr>
 					</thead>
 
 					<tbody>
-						{data.products.slice(0, 8).map((item) => (
+						{currentItems.map((item) => (
 							<tr key={item.action} className="hover:bg-slate-300/10 w-full">
-								<td className="py-1.5 px-3 text-sm border-b">
+								<td className="py-1.5 pl-5 text-sm border-b">
 									<img
 										src={item.photo}
 										alt={item.name.slice(0, 10) + "..."}
 										className="2xl:w-20 w-16 aspect-square object-cover object-center"
 									/>
 								</td>
-								<td className="py-1.5 px-3 text-sm border-b">
+								<td className="py-1.5 pl-5 text-sm border-b">
 									{item.name.length > 40
 										? item.name.slice(0, 40) + "..."
 										: item.name}
 								</td>
-								<td className="py-1.5 px-3 text-sm border-b">{item.price}</td>
-								<td className="py-1.5 px-3 text-sm border-b">{item.stock}</td>
+								<td className="py-1.5 pl-5 text-sm border-b">{item.price}</td>
+								<td className="py-1.5 pl-5 text-sm border-b">{item.stock}</td>
 								<td className="border-b">
 									<span className="flex items-center gap-2">
 										<Link
@@ -75,6 +135,26 @@ const Products = () => {
 						))}
 					</tbody>
 				</table>
+
+				<div className="flex items-center justify-center px-5 gap-2 pb-4 pt-2">
+					<button
+						onClick={() => paginate(currentPage - 1)}
+						disabled={currentPage === 1}
+						className="bg-slate-300/20 p-2 rounded-full cursor-pointer text-xl flex items-center justify-center text-center hover:bg-slate-400/20 disabled:cursor-not-allowed disabled:text-zinc-400 disabled:bg-slate-300/20 disabled:hover:bg-slate-300/20"
+					>
+						<RiArrowLeftSLine />
+					</button>
+					<span className="text-sm">
+						Page {currentPage}/{Math.ceil(sortedData.length / itemsPerPage)}
+					</span>
+					<button
+						onClick={() => paginate(currentPage + 1)}
+						disabled={indexOfLastItem >= sortedData.length}
+						className="bg-slate-300/20 p-2 rounded-full cursor-pointer text-xl flex items-center justify-center text-center hover:bg-slate-400/20 disabled:cursor-not-allowed disabled:text-zinc-400 disabled:bg-slate-300/20 disabled:hover:bg-slate-300/20"
+					>
+						<RiArrowRightSLine />
+					</button>
+				</div>
 			</div>
 		</section>
 	);
