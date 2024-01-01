@@ -13,12 +13,12 @@ const GenderRatio = () => {
 				<DoughnutChart
 					labels={["Male", "Female"]}
 					data={[12, 8]}
-					backgroundColor={["hsl(340, 82%,56%)", "skyblue"]}
+					backgroundColor={["#3b82f6", "#f43f5e"]}
 					cutout={100}
 				/>
 			</div>
 
-			<span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-5xl text-slate-600">
+			<span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-5xl text-zinc-500">
 				<BiMaleFemale />
 			</span>
 		</section>

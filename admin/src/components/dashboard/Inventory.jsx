@@ -28,13 +28,13 @@ const Inventory = () => {
 				<h2 className="font-semibold">Inventory</h2>
 			</div>
 
-			<div className="flex flex-col gap-6 px-5 h-full overflow-y-auto">
+			<div className="flex flex-col text-sm gap-6 px-5 h-full overflow-y-auto">
 				{data.categories.map((category) => (
 					<CategoryItem
 						key={category.item}
 						item={category.item}
 						value={category.value}
-						color={`hsl(${category.value * 4},${category.value}%,50%)`}
+						color={`hsl(${category.value * 92},${category.value}%,50%)`}
 					/>
 				))}
 			</div>

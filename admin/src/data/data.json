@@ -1,7 +1,7 @@
 {
 	"categories": [
 		{
-			"value": 40,
+			"value": 72,
 			"item": "laptop"
 		},
 		{
@@ -9,7 +9,7 @@
 			"item": "shoes"
 		},
 		{
-			"value": 12,
+			"value": 15,
 			"item": "camera"
 		},
 		{
@@ -21,24 +21,44 @@
 			"item": "mobile"
 		},
 		{
-			"value": 65,
-			"item": "jeans"
+			"value": 47,
+			"item": "keyboard"
 		},
 		{
-			"value": 78,
-			"item": "mobile"
-		},
-		{
-			"value": 65,
-			"item": "jeans"
-		},
-		{
-			"value": 78,
-			"item": "mobile"
+			"value": 54,
+			"item": "mouse"
 		}
 	],
 
 	"transaction": [
+		{
+			"id": 1,
+			"amount": 5902,
+			"quantity": 5,
+			"discount": 900,
+			"status": "processing"
+		},
+		{
+			"id": 1,
+			"amount": 5902,
+			"quantity": 5,
+			"discount": 900,
+			"status": "processing"
+		},
+		{
+			"id": 1,
+			"amount": 5902,
+			"quantity": 5,
+			"discount": 900,
+			"status": "processing"
+		},
+		{
+			"id": 1,
+			"amount": 5902,
+			"quantity": 5,
+			"discount": 900,
+			"status": "processing"
+		},
 		{
 			"id": 1,
 			"amount": 5902,
