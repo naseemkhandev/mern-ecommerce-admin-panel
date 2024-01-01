@@ -20,7 +20,7 @@ const Routes = () => {
 			<Suspense fallback={<Loader />}>
 				<Routing>
 					<Route
-						path="/admin/dashboard"
+						path="/"
 						element={
 							<RootLayout>
 								<Dashboard />
@@ -28,7 +28,7 @@ const Routes = () => {
 						}
 					/>
 					<Route
-						path="/admin/customer"
+						path="/customer"
 						element={
 							<RootLayout>
 								<Customers />
@@ -36,7 +36,7 @@ const Routes = () => {
 						}
 					/>
 					<Route
-						path="/admin/product"
+						path="/product"
 						element={
 							<RootLayout>
 								<Products />
@@ -44,7 +44,7 @@ const Routes = () => {
 						}
 					/>
 					<Route
-						path="/admin/transaction"
+						path="/transaction"
 						element={
 							<RootLayout>
 								<Transactions />

@@ -13,7 +13,7 @@ const Products = () => {
 			<div className="px-5 pb-3 border-b flex items-center justify-between">
 				<h2 className="font-semibold text-lg">All Products</h2>
 				<Link
-					to="/admin/product/new"
+					to="/product/new"
 					className="flex items-center gap-1 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2.5 rounded-lg"
 				>
 					<span className="text-xl">
@@ -39,7 +39,7 @@ const Products = () => {
 					</thead>
 
 					<tbody>
-						{data.products.slice(0,8).map((item) => (
+						{data.products.slice(0, 8).map((item) => (
 							<tr key={item.action} className="hover:bg-slate-300/10 w-full">
 								<td className="py-1.5 px-3 text-sm border-b">
 									<img
@@ -58,13 +58,13 @@ const Products = () => {
 								<td className="border-b">
 									<span className="flex items-center gap-2">
 										<Link
-											to={`/admin/product/${item.action}`}
+											to={`/product/${item.action}`}
 											className="text-base p-2.5 rounded-full bg-green-500/10 text-green-500 hover:bg-green-500/20"
 										>
 											<FiEdit />
 										</Link>
 										<Link
-											to={`/admin/product/${item.action}`}
+											to={`/product/${item.action}`}
 											className="text-base p-2.5 rounded-full bg-red-500/10 text-red-500 hover:bg-red-500/20"
 										>
 											<FaTrashCan />

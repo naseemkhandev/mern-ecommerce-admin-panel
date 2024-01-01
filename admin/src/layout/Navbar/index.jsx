@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom";
-import { FiSearch, FiMenu } from "react-icons/fi";
+import { FiMenu } from "react-icons/fi";
 import { FaBell, FaUser } from "react-icons/fa";
 import { PiSunDimFill } from "react-icons/pi";
 import { RiMoonClearFill } from "react-icons/ri";
@@ -19,7 +19,9 @@ const Navbar = () => {
 				<span className="block lg:hidden text-xl p-2 rounded-full cursor-pointer hover:bg-slate-500/10">
 					<FiMenu />
 				</span>
-				<h2 className="text-lg sm:text-xl capitalize font-semibold">{currentRoute}</h2>
+				<h2 className="text-lg sm:text-xl capitalize font-semibold">
+					{currentRoute === "" ? "Dashboard" : currentRoute}
+				</h2>
 			</div>
 
 			<div className="flex items-center gap-2">
