@@ -11,7 +11,7 @@ import { TiArrowSortedDown, TiArrowSortedUp } from "react-icons/ti";
 const Products = () => {
 	const [sortConfig, setSortConfig] = useState({ key: "", direction: "" });
 	const [currentPage, setCurrentPage] = useState(1);
-	const itemsPerPage = 8;
+	const itemsPerPage = 7;
 
 	const columns = ["photo", "name", "price", "stock", "action"];
 
@@ -136,11 +136,11 @@ const Products = () => {
 					</tbody>
 				</table>
 
-				<div className="flex items-center justify-center px-5 gap-2 pb-4 pt-2">
+				<div className="flex items-center justify-center px-5 gap-2 pb-4 pt-2 select-none">
 					<button
 						onClick={() => paginate(currentPage - 1)}
 						disabled={currentPage === 1}
-						className="bg-slate-300/20 p-2 rounded-full cursor-pointer text-xl flex items-center justify-center text-center hover:bg-slate-400/20 disabled:cursor-not-allowed disabled:text-zinc-400 disabled:bg-slate-300/20 disabled:hover:bg-slate-300/20"
+						className="bg-slate-300/20 p-2 rounded-full cursor-pointer text-xl flex items-center justify-center text-center hover:bg-slate-400/20 disabled:cursor-not-allowed disabled:text-zinc-400/80 disabled:bg-slate-300/20 disabled:hover:bg-slate-300/20"
 					>
 						<RiArrowLeftSLine />
 					</button>
@@ -150,7 +150,7 @@ const Products = () => {
 					<button
 						onClick={() => paginate(currentPage + 1)}
 						disabled={indexOfLastItem >= sortedData.length}
-						className="bg-slate-300/20 p-2 rounded-full cursor-pointer text-xl flex items-center justify-center text-center hover:bg-slate-400/20 disabled:cursor-not-allowed disabled:text-zinc-400 disabled:bg-slate-300/20 disabled:hover:bg-slate-300/20"
+						className="bg-slate-300/20 p-2 rounded-full cursor-pointer text-xl flex items-center justify-center text-center hover:bg-slate-400/20 disabled:cursor-not-allowed disabled:text-zinc-400/80 disabled:bg-slate-300/20 disabled:hover:bg-slate-300/20"
 					>
 						<RiArrowRightSLine />
 					</button>
