@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { FiEdit } from "react-icons/fi";
 import { FaTrashCan } from "react-icons/fa6";
-import { IoIosAddCircle } from "react-icons/io";
 import { RiArrowLeftSLine, RiArrowRightSLine } from "react-icons/ri";
 
 import data from "../data/data.json";
@@ -13,7 +12,7 @@ const Customers = () => {
 	const [currentPage, setCurrentPage] = useState(1);
 	const itemsPerPage = 7;
 
-	const columns = ["photo", "name", "gender", "email", "role", "action"];
+	const columns = ["photo", "name", "email", "gender", "role", "action"];
 
 	const sortedData = useMemo(() => {
 		let sortableData = [...data.customers];
@@ -99,13 +98,14 @@ const Customers = () => {
 										className="2xl:w-16 w-12 aspect-square object-cover object-top rounded-full"
 									/>
 								</td>
+
 								<td className="py-1.5 pl-5 text-sm border-b capitalize">
 									{item.name}
 								</td>
+								<td className="py-1.5 pl-5 text-sm border-b">{item.email}</td>
 								<td className="py-1.5 pl-5 text-sm border-b capitalize">
 									{item.gender}
 								</td>
-								<td className="py-1.5 pl-5 text-sm border-b">{item.email}</td>
 								<td className="py-1.5 pl-5 text-sm border-b capitalize">
 									{item.role}
 								</td>
