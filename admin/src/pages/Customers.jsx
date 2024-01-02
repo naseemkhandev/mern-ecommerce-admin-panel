@@ -112,13 +112,13 @@ const Customers = () => {
 								<td className="border-b">
 									<span className="flex items-center gap-2">
 										<Link
-											to={`/product/${item.action}`}
+											to={`/customer/${item.action}`}
 											className="text-base p-2.5 rounded-full bg-green-500/10 text-green-500 hover:bg-green-500/20"
 										>
 											<FiEdit />
 										</Link>
 										<Link
-											to={`/product/${item.action}`}
+											to={`/customer/${item.action}`}
 											className="text-base p-2.5 rounded-full bg-red-500/10 text-red-500 hover:bg-red-500/20"
 										>
 											<FaTrashCan />

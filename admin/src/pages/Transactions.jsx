@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { FiEdit } from "react-icons/fi";
 import { FaTrashCan } from "react-icons/fa6";
-import { IoIosAddCircle } from "react-icons/io";
 import { RiArrowLeftSLine, RiArrowRightSLine } from "react-icons/ri";
 
 import data from "../data/data.json";
@@ -130,13 +129,13 @@ const Transactions = () => {
 								<td className="border-b">
 									<span className="flex items-center gap-2">
 										<Link
-											to={`/product/${item.action}`}
+											to={`/transaction/${item.action}`}
 											className="text-base p-2.5 rounded-full bg-green-500/10 text-green-500 hover:bg-green-500/20"
 										>
 											<FiEdit />
 										</Link>
 										<Link
-											to={`/product/${item.action}`}
+											to={`/transaction/${item.action}`}
 											className="text-base p-2.5 rounded-full bg-red-500/10 text-red-500 hover:bg-red-500/20"
 										>
 											<FaTrashCan />

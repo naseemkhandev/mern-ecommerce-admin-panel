@@ -20,7 +20,13 @@ const Navbar = () => {
 					<FiMenu />
 				</span>
 				<h2 className="text-lg sm:text-xl capitalize font-semibold">
-					{currentRoute === "" ? "Dashboard" : currentRoute}
+					{currentRoute === ""
+						? "Dashboard"
+						: `${
+								currentRoute.length > 20
+									? currentRoute.slice(0, 20) + "..."
+									: currentRoute
+						}`}
 				</h2>
 			</div>
 

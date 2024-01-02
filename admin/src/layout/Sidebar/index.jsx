@@ -1,10 +1,10 @@
 import { Link, useLocation } from "react-router-dom";
-
 import { sidebar } from "../../constants/sidebar";
 import Search from "../../components/common/Search";
 
 const Sidebar = () => {
 	const { pathname } = useLocation();
+	const currentPath = pathname.split("/")[1];
 
 	return (
 		<div className="w-full sm:w-80 md:w-[17rem] 2xl:w-72 py-8 px-3 bg-white shadow-2xl shadow-slate-400/5 min-h-screen h-full overflow-y-auto fixed top-0 -left-full z-50 lg:left-0 no-scrollbar">
@@ -35,11 +35,16 @@ const Sidebar = () => {
 										<Link
 											to={link.path}
 											className={`w-full p-3.5 2xl:text-base text-[0.9rem] rounded-lg hover:bg-blue-600 hover:text-white flex items-center gap-1 ${
-												pathname === link.path && "bg-blue-600 text-white"
+												currentPath === link.path.split("/")[1] &&
+												"bg-blue-600 text-white"
 											}`}
 										>
 											<span className="text-[1.1rem] 2xl:text-xl">
-												{pathname === link.path ? <ActiveIcon /> : <Icon />}
+												{currentPath === link.path.split("/")[1] ? (
+													<ActiveIcon />
+												) : (
+													<Icon />
+												)}
 											</span>
 											<span>{link.label}</span>
 										</Link>

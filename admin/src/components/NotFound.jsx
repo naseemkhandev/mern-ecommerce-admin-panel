@@ -7,7 +7,7 @@ const PageNotFound = () => {
 	const navigate = useNavigate();
 
 	return (
-		<section className="bg-white dark:bg-blue-600 fixed top-0 left-0 w-full h-screen">
+		<section className="bg-white dark:bg-blue-600 z-[1000] fixed top-0 left-0 w-full h-screen">
 			<div className="container flex items-center min-h-screen px-6 py-12 mx-auto">
 				<div className="flex flex-col items-center max-w-sm mx-auto text-center">
 					<p className="p-2 text-3xl font-medium text-blue-600 rounded-full bg-blue-600/5 dark:bg-blue-600">
