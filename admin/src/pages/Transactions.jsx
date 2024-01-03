@@ -61,7 +61,7 @@ const Transactions = () => {
 	};
 
 	return (
-		<section className="pt-5 pb-2 w-full flex flex-col gap-4 bg-white shadow-lg shadow-slate-400/5 bg-orange-500/10 rounded-lg">
+		<section className="pt-5 pb-2 whitespace-nowrap w-full flex flex-col gap-4 bg-white shadow-lg shadow-slate-400/5 bg-orange-500/10 rounded-lg">
 			<div className="px-5 pb-5 border-b">
 				<h2 className="font-semibold text-lg">All Transactions</h2>
 			</div>
@@ -126,7 +126,7 @@ const Transactions = () => {
 										{item.status}
 									</span>
 								</td>
-								<td className="border-b">
+							<td className="border-b px-5">
 									<span className="flex items-center gap-2">
 										<Link
 											to={`/transaction/${item.action}`}

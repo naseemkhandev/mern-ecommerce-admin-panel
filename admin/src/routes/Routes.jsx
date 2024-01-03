@@ -12,9 +12,9 @@ const Transactions = lazy(() => import("../pages/Transactions"));
 
 // management
 const NewProduct = lazy(() => import("../pages/management/NewProduct"));
-const ManageCustomer = lazy(() => import("../pages/management/ManageCustomer"));
-const ManageTransaction = lazy(() =>
-	import("../pages/management/ManageTransaction")
+const EditCustomer = lazy(() => import("../pages/management/EditCustomer"));
+const EditTransaction = lazy(() =>
+	import("../pages/management/EditTransaction")
 );
 
 import Loader from "../components/Loader";
@@ -35,8 +35,8 @@ const Routes = () => {
 						{/* management */}
 						<Route path="/product/new" element={<NewProduct />} />
 						<Route path="/product/:id" element={<NewProduct />} />
-						<Route path="/customer/:id" element={<ManageCustomer />} />
-						<Route path="/transaction/:id" element={<ManageTransaction />} />
+						<Route path="/customer/:id" element={<EditCustomer />} />
+						<Route path="/transaction/:id" element={<EditTransaction />} />
 
 						<Route path="*" element={<NotFound />} />
 					</Routing>

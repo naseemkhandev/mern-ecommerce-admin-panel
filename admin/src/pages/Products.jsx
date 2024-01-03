@@ -54,17 +54,17 @@ const Products = () => {
 	};
 
 	return (
-		<section className="pt-4 pb-2 w-full flex flex-col gap-4 bg-white shadow-lg shadow-slate-400/5 bg-orange-500/10 rounded-lg">
+		<section className="pt-4 pb-2 whitespace-nowrap w-full flex flex-col gap-4 bg-white shadow-lg shadow-slate-400/5 bg-orange-500/10 rounded-lg">
 			<div className="px-5 pb-3 border-b flex items-center justify-between">
 				<h2 className="font-semibold text-lg">All Products</h2>
 				<Link
 					to="/product/new"
 					className="flex items-center gap-1 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2.5 rounded-lg"
 				>
-					<span className="text-xl">
+					<span className="text-base md:text-xl">
 						<IoIosAddCircle />
 					</span>
-					<span>Add New</span>
+					<span className="text-sm md:text-base">Add New</span>
 				</Link>
 			</div>
 
@@ -115,7 +115,7 @@ const Products = () => {
 								</td>
 								<td className="py-1.5 pl-5 text-sm border-b">{item.price}</td>
 								<td className="py-1.5 pl-5 text-sm border-b">{item.stock}</td>
-								<td className="border-b">
+								<td className="border-b px-5">
 									<span className="flex items-center gap-2">
 										<Link
 											to={`/product/${item.action}`}
