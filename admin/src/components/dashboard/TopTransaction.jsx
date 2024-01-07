@@ -41,7 +41,7 @@ const TopTransaction = () => {
 
 	return (
 		<section
-			className={`pt-5 pb-2 lg:h-full w-full xl:max-h-[24rem] xl:h-full 2xl:max-h-[36rem] flex flex-col gap-4 rounded-lg 
+			className={`transition-all duration-500 pt-5 pb-2 lg:h-full w-full xl:max-h-[24rem] xl:h-full 2xl:max-h-[36rem] flex flex-col gap-4 rounded-lg 
 		${
 			theme === "dark"
 				? "bg-darkColor text-white"
@@ -128,7 +128,7 @@ const TopTransaction = () => {
 									<span
 										className={`p-1.5 text-center text-xs 2xl:text-sm text-white w-24 capitalize rounded-md flex items-center justify-center mx-auto shadow-md ${
 											item.status === "processing" && "bg-red-500"
-										} ${item.status === "shipped" && "bg-blue-500"}
+										} ${item.status === "shipped" && "bg-indigo-500"}
 									${item.status === "delivered" && "bg-green-500"}`}
 									>
 										{item.status}

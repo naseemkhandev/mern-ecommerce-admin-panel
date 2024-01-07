@@ -27,7 +27,7 @@ const Navbar = () => {
 				theme === "dark"
 					? "bg-darkColor text-white"
 					: "bg-white shadow-lg shadow-slate-400/5"
-			} select-none py-3 px-3 sm:px-5 rounded-lg flex items-center justify-between`}
+			} transition-all duration-500 select-none py-3 px-3 sm:px-5 rounded-lg flex items-center justify-between`}
 		>
 			<div className="flex items-center gap-2">
 				<span
@@ -63,14 +63,14 @@ const Navbar = () => {
 						onClick={handleThemeToggle}
 						className="bg-yellow-500/10 hover:bg-yellow-500/20 cursor-pointer text-yellow-500 p-2.5 rounded-md text-xl sm:text-2xl"
 					>
-						<PiSunDimFill />
+						<RiMoonClearFill />
 					</span>
 				) : (
 					<span
 						onClick={handleThemeToggle}
 						className="bg-yellow-500/10 hover:bg-yellow-500/20 cursor-pointer text-yellow-500 p-2.5 rounded-md text-xl sm:text-2xl"
 					>
-						<RiMoonClearFill />
+						<PiSunDimFill />
 					</span>
 				)}
 			</div>

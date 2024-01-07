@@ -51,7 +51,7 @@ const NewProduct = () => {
 
 	return (
 		<section
-			className={`py-6 w-full flex flex-col gap-4 rounded-lg ${
+			className={`py-6 transition-all duration-500 w-full flex flex-col gap-4 rounded-lg ${
 				theme === "dark"
 					? "bg-darkColor text-white"
 					: "bg-white shadow-lg shadow-slate-400/5"
@@ -71,7 +71,7 @@ const NewProduct = () => {
 						${
 							newProduct.photo
 								? ""
-								: "px-5 sm:px-10 py-20 border-secondary border-dashed border-2 text-center"
+								: "px-4 sm:px-10 py-20 border-secondary border-dashed border-2 text-center"
 						}`}
 					>
 						<input
@@ -96,7 +96,7 @@ const NewProduct = () => {
 								>
 									<TbPhotoPlus />
 								</span>
-								<h4 className="font-semibold text-blue-500 gilroy-semibold">
+								<h4 className="font-semibold text-indigo-500 gilroy-semibold">
 									Drag your image here, or Browse
 								</h4>
 								<p className="text-dark-gray">Support JPG, PNG, PDF</p>
@@ -121,7 +121,9 @@ const NewProduct = () => {
 								onChange={handleChange}
 								disabled
 								className={`border disabled:cursor-not-allowed px-3 py-3.5 rounded-lg outline-none 2xl:text-base md:text-[.9rem] text-sm ${
-									theme === "dark" ? "disabled:opacity-15" : "disabled:opacity-50"
+									theme === "dark"
+										? "disabled:opacity-15"
+										: "disabled:opacity-50"
 								}`}
 							/>
 						</div>
@@ -140,7 +142,7 @@ const NewProduct = () => {
 							placeholder="Enter product name"
 							value={newProduct.name}
 							onChange={handleChange}
-							className={`border px-3 py-3.5 rounded-lg focus-within:border-blue-300 outline-none 2xl:text-base md:text-[.9rem] text-sm ${
+							className={`border px-3 py-3.5 rounded-lg focus-within:border-indigo-300 outline-none 2xl:text-base md:text-[.9rem] text-sm ${
 								theme === "dark" && "bg-darkColor text-white"
 							}`}
 						/>
@@ -160,7 +162,7 @@ const NewProduct = () => {
 							placeholder="Enter product price"
 							value={newProduct.price}
 							onChange={handleChange}
-							className={`border px-3 py-3.5 rounded-lg focus-within:border-blue-300 outline-none 2xl:text-base text-sm
+							className={`border px-3 py-3.5 rounded-lg focus-within:border-indigo-300 outline-none 2xl:text-base text-sm
 							${theme === "dark" && "bg-darkColor text-white"}
 							`}
 						/>
@@ -180,7 +182,7 @@ const NewProduct = () => {
 							placeholder="Enter product stock"
 							value={newProduct.stock}
 							onChange={handleChange}
-							className={`border px-3 py-3.5 rounded-lg focus-within:border-blue-300 outline-none 2xl:text-base text-sm ${
+							className={`border px-3 py-3.5 rounded-lg focus-within:border-indigo-300 outline-none 2xl:text-base text-sm ${
 								theme === "dark" && "bg-darkColor text-white"
 							}`}
 						/>
@@ -188,7 +190,7 @@ const NewProduct = () => {
 
 					<button
 						type="submit"
-						className="bg-blue-600 text-white hover:bg-blue-700 py-3 px-5 rounded-lg capitalize"
+						className="bg-indigo-600 text-white hover:bg-indigo-700 py-3 px-5 rounded-lg capitalize"
 					>
 						add product
 					</button>

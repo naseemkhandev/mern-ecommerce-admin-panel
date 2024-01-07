@@ -9,7 +9,7 @@ const GenderRatio = () => {
 
 	return (
 		<section
-			className={`relative pt-5 pb-2 lg:h-full w-full xl:max-h-[24rem] xl:h-full 2xl:max-h-[36rem] flex flex-col gap-4 rounded-lg 
+			className={`relative transition-all duration-500 pt-5 pb-2 lg:h-full w-full xl:max-h-[24rem] xl:h-full 2xl:max-h-[36rem] flex flex-col gap-4 rounded-lg 
 		${
 			theme === "dark"
 				? "bg-darkColor text-white"

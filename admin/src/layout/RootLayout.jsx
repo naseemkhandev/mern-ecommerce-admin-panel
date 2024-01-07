@@ -36,7 +36,7 @@ const RootLayout = ({ children }) => {
 
 	return (
 		<div
-			className={`lg:pl-[17rem] 2xl:pl-72 ${theme === "dark" && "bg-darkBg"}`}
+			className={`lg:pl-[17rem] 2xl:pl-72 transition-all duration-500 ${theme === "dark" && "bg-darkBg"}`}
 		>
 			<Sidebar />
 			<div className="p-3 pb-5 flex flex-col gap-3">

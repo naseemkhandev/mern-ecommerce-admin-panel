@@ -7,7 +7,7 @@ const EditTransaction = () => {
 
 	return (
 		<section
-			className={`py-6 w-full flex flex-col gap-4 rounded-lg ${
+			className={`py-6 transition-all duration-500 w-full flex flex-col gap-4 rounded-lg ${
 				theme === "dark"
 					? "bg-darkColor text-white"
 					: "bg-white shadow-lg shadow-slate-400/5"

@@ -66,7 +66,7 @@ const Transactions = () => {
 
 	return (
 		<section
-			className={`py-6 pb-2 whitespace-nowrap w-full flex flex-col gap-4 rounded-lg ${
+			className={`py-6 pb-2 transition-all duration-500 whitespace-nowrap w-full flex flex-col gap-4 rounded-lg ${
 				theme === "dark"
 					? "bg-darkColor text-white"
 					: "bg-white shadow-lg shadow-slate-400/5"
@@ -164,7 +164,7 @@ const Transactions = () => {
 									<span
 										className={`p-1.5 text-center text-xs 2xl:text-sm text-white w-24 capitalize rounded-md flex items-center justify-center mx-auto shadow-md ${
 											item.status === "processing" && "bg-red-500"
-										} ${item.status === "shipped" && "bg-blue-500"}
+										} ${item.status === "shipped" && "bg-indigo-500"}
 									${item.status === "delivered" && "bg-green-500"}`}
 									>
 										{item.status}

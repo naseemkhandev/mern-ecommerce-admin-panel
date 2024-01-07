@@ -41,7 +41,7 @@ const Dashboard = () => {
 				/>
 				<Card
 					icon={<RiShoppingBagFill />}
-					iconBg="bg-blue-500"
+					iconBg="bg-indigo-500"
 					title="products"
 					value={1000}
 					percent={72}

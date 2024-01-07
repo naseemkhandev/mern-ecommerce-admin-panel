@@ -59,7 +59,7 @@ const Products = () => {
 
 	return (
 		<section
-			className={`pt-4 pb-2 whitespace-nowrap w-full flex flex-col gap-4 rounded-lg ${
+			className={`pt-4 pb-2 transition-all duration-500 whitespace-nowrap w-full flex flex-col gap-4 rounded-lg ${
 				theme === "dark"
 					? "bg-darkColor text-white"
 					: "bg-white shadow-lg shadow-slate-400/5"
@@ -69,7 +69,7 @@ const Products = () => {
 				<h2 className="font-semibold text-lg">All Products</h2>
 				<Link
 					to="/product/new"
-					className="flex items-center gap-1 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2.5 rounded-lg"
+					className="flex items-center gap-1 bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2.5 rounded-lg"
 				>
 					<span className="text-base md:text-xl">
 						<IoIosAddCircle />

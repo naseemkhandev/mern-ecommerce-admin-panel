@@ -6,7 +6,7 @@ const CategoryItem = ({ item, value, color }) => {
 	const theme = useSelector(selectTheme);
 
 	return (
-		<div className="flex items-center gap-5 justify-between">
+		<div className="flex transition-all duration-500 items-center gap-5 justify-between">
 			<p className="capitalize font-medium">{item}</p>
 			<div className="flex items-center justify-end gap-2 w-full">
 				<div className="w-36 h-1.5 relative">
