@@ -25,8 +25,8 @@ const RevenueTransaction = () => {
 					data_2={[600, 100, 923, 123, 210, 123, 439, 929, 802, 823, 823, 212]}
 					title_1="Revenue"
 					title_2="Transaction"
-					bgColor_1="rgb(0,115,255)"
-					bgColor_2="rgba(53,162,235,0.8)"
+					bgColor_1="#2563eb"
+					bgColor_2="#60a5fa"
 				/>
 			</div>
 		</section>
