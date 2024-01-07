@@ -1,5 +1,5 @@
 import { FiSearch } from "react-icons/fi";
-import { selectTheme } from "../../store/slices/ThemeSlice";
+import { selectTheme } from "../../store/slices/DarkModeSlice";
 import { useSelector } from "react-redux";
 
 const Search = ({ className }) => {

@@ -6,7 +6,7 @@ import { RiArrowLeftSLine, RiArrowRightSLine } from "react-icons/ri";
 import data from "../data/data.json";
 import { useMemo, useState } from "react";
 import { TiArrowSortedDown, TiArrowSortedUp } from "react-icons/ti";
-import { selectTheme } from "../store/slices/themeSlice";
+import { selectTheme } from "../store/slices/DarkModeSlice";
 import { useSelector } from "react-redux";
 
 const Transactions = () => {

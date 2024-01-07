@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 import { IoInformationOutline } from "react-icons/io5";
 import { BsArrowLeft } from "react-icons/bs";
-import { selectTheme } from "../store/slices/ThemeSlice";
+import { selectTheme } from "../store/slices/DarkModeSlice";
 import { useSelector } from "react-redux";
 
 const PageNotFound = () => {

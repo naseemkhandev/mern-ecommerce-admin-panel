@@ -3,7 +3,7 @@ import { TiArrowSortedDown, TiArrowSortedUp } from "react-icons/ti";
 
 import data from "../../data/data.json";
 import { useSelector } from "react-redux";
-import { selectTheme } from "../../store/slices/themeSlice";
+import { selectTheme } from "../../store/slices/DarkModeSlice";
 
 const columns = ["Id", "Quantity", "Discount", "Amount", "Status"];
 

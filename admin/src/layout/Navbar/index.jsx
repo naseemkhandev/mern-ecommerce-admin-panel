@@ -5,7 +5,7 @@ import { PiSunDimFill } from "react-icons/pi";
 import { RiMoonClearFill } from "react-icons/ri";
 import Search from "../../components/common/Search";
 import { useDispatch, useSelector } from "react-redux";
-import { selectTheme, toggleTheme } from "../../store/slices/ThemeSlice";
+import { selectTheme, toggleTheme } from "../../store/slices/DarkModeSlice";
 import { openMenu } from "../../store/slices/SidebarSlice";
 
 const Navbar = () => {

@@ -1,5 +1,5 @@
 import { VscLoading } from "react-icons/vsc";
-import { selectTheme } from "../store/slices/ThemeSlice";
+import { selectTheme } from "../store/slices/DarkModeSlice";
 import { useSelector } from "react-redux";
 
 const Loader = () => {

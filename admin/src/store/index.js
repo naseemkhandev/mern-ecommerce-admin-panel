@@ -1,10 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import ThemeReducer from "../store/slices/ThemeSlice";
-import SidebarReducer from "../store/slices/SidebarSlice";
+
+import DarkModeReducer from "./slices/DarkModeSlice.js";
+import SidebarReducer from "./slices/SidebarSlice.js";
 
 const store = configureStore({
 	reducer: {
-		theme: ThemeReducer,
+		theme: DarkModeReducer,
 		sidebar: SidebarReducer,
 	},
 });

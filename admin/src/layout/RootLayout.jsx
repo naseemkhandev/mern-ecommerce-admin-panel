@@ -5,8 +5,8 @@ import ScrollTop from "../components/ScrollToTop";
 import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
 import { useLocation } from "react-router-dom";
-import { selectTheme } from "../store/slices/themeSlice";
 import { useSelector } from "react-redux";
+import { selectTheme } from "../store/slices/DarkModeSlice";
 
 const RootLayout = ({ children }) => {
 	const [progress, setProgress] = useState(0);
@@ -36,7 +36,9 @@ const RootLayout = ({ children }) => {
 
 	return (
 		<div
-			className={`lg:pl-[17rem] 2xl:pl-72 transition-all duration-500 ${theme === "dark" && "bg-darkBg"}`}
+			className={`lg:pl-[17rem] 2xl:pl-72 transition-all duration-500 ${
+				theme === "dark" && "bg-darkBg"
+			}`}
 		>
 			<Sidebar />
 			<div className="p-3 pb-5 flex flex-col gap-3">

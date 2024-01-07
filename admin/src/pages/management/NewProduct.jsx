@@ -3,7 +3,7 @@ import { useLocation, useParams } from "react-router-dom";
 import { TbPhotoPlus } from "react-icons/tb";
 
 import data from "../../data/data.json";
-import { selectTheme } from "../../store/slices/themeSlice";
+import { selectTheme } from "../../store/slices/DarkModeSlice";
 import { useSelector } from "react-redux";
 
 const NewProduct = () => {

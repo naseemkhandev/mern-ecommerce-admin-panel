@@ -1,5 +1,5 @@
 import { HiTrendingDown, HiTrendingUp } from "react-icons/hi";
-import { selectTheme } from "../../store/slices/themeSlice";
+import { selectTheme } from "../../store/slices/DarkModeSlice";
 import { useSelector } from "react-redux";
 
 const Card = ({ icon, iconBg, title, amount, value, percent, barColor }) => {

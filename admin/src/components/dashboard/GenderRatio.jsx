@@ -1,7 +1,7 @@
 import { BiMaleFemale } from "react-icons/bi";
 
 import { DoughnutChart } from "../common/Charts";
-import { selectTheme } from "../../store/slices/themeSlice";
+import { selectTheme } from "../../store/slices/DarkModeSlice";
 import { useSelector } from "react-redux";
 
 const GenderRatio = () => {

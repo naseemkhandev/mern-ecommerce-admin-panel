@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 
-import { selectTheme } from "../../store/slices/themeSlice";
+import { selectTheme } from "../../store/slices/DarkModeSlice";
 import { TbPhotoPlus } from "react-icons/tb";
 import { useEffect, useState } from "react";
 import data from "../../data/data.json";

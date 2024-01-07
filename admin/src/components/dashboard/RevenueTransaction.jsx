@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { selectTheme } from "../../store/slices/themeSlice";
+import { selectTheme } from "../../store/slices/DarkModeSlice";
 import { BarChart } from "../common/Charts";
 
 const RevenueTransaction = () => {
@@ -7,8 +7,12 @@ const RevenueTransaction = () => {
 
 	return (
 		<section
-			className={`pt-5 transition-all duration-500 pb-2 lg:h-full w-full xl:max-h-[24rem] xl:h-full 2xl:max-h-[36rem] min-h-screen flex flex-col gap-4 rounded-lg 
-		${theme === "dark" ? "bg-darkColor text-white" : "bg-white shadow-lg shadow-slate-400/5"}
+			className={`pt-5 transition-all duration-500 pb-2 lg:h-full w-full xl:max-h-[25rem] xl:h-full 2xl:max-h-[36rem] flex flex-col gap-4 rounded-lg 
+		${
+			theme === "dark"
+				? "bg-darkColor text-white"
+				: "bg-white shadow-lg shadow-slate-400/5"
+		}
 		`}
 		>
 			<div className="px-5 pb-4 border-b">

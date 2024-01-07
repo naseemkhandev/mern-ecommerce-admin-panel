@@ -2,7 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { sidebar } from "../../constants/sidebar";
 import Search from "../../components/common/Search";
 import { useDispatch, useSelector } from "react-redux";
-import { selectTheme } from "../../store/slices/ThemeSlice";
+import { selectTheme } from "../../store/slices/DarkModeSlice";
 import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
 import { closeMenu } from "../../store/slices/SidebarSlice";
 import { IoClose } from "react-icons/io5";

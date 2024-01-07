@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 
-import { selectTheme } from "../../store/slices/themeSlice";
+import { selectTheme } from "../../store/slices/DarkModeSlice";
 
 const EditTransaction = () => {
 	const theme = useSelector(selectTheme);

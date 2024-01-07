@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import data from "../../data/data.json";
-import { selectTheme } from "../../store/slices/themeSlice";
+import { selectTheme } from "../../store/slices/DarkModeSlice";
 
 const CategoryItem = ({ item, value, color }) => {
 	const theme = useSelector(selectTheme);
