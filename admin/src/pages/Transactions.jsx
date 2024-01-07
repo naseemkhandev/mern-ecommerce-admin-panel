@@ -6,11 +6,15 @@ import { RiArrowLeftSLine, RiArrowRightSLine } from "react-icons/ri";
 import data from "../data/data.json";
 import { useMemo, useState } from "react";
 import { TiArrowSortedDown, TiArrowSortedUp } from "react-icons/ti";
+import { selectTheme } from "../store/slices/themeSlice";
+import { useSelector } from "react-redux";
 
 const Transactions = () => {
 	const [sortConfig, setSortConfig] = useState({ key: "", direction: "" });
 	const [currentPage, setCurrentPage] = useState(1);
 	const itemsPerPage = 7;
+
+	const theme = useSelector(selectTheme);
 
 	const columns = [
 		"photo",
@@ -61,11 +65,16 @@ const Transactions = () => {
 	};
 
 	return (
-		<section className="pt-5 pb-2 whitespace-nowrap w-full flex flex-col gap-4 bg-white shadow-lg shadow-slate-400/5 bg-orange-500/10 rounded-lg">
+		<section
+			className={`py-6 pb-2 whitespace-nowrap w-full flex flex-col gap-4 rounded-lg ${
+				theme === "dark"
+					? "bg-darkColor text-white"
+					: "bg-white shadow-lg shadow-slate-400/5"
+			}`}
+		>
 			<div className="px-5 pb-5 border-b">
 				<h2 className="font-semibold text-lg">All Transactions</h2>
 			</div>
-
 			<div className="flex flex-col gap-6 h-full overflow-auto">
 				<table className="w-full select-none cursor-text text-left">
 					<thead>
@@ -73,7 +82,9 @@ const Transactions = () => {
 							{columns.map((column) => (
 								<th
 									key={column}
-									className="font-semibold capitalize pl-5 pb-3 text-zinc-700 cursor-pointer"
+									className={`font-semibold capitalize pl-5 pb-3 cursor-pointer ${
+										theme !== "dark" && "text-zinc-700"
+									}`}
 									onClick={() => requestSort(column)}
 								>
 									<div className="flex items-center gap-1">
@@ -98,25 +109,58 @@ const Transactions = () => {
 
 					<tbody>
 						{currentItems.map((item) => (
-							<tr key={item.email} className="hover:bg-slate-300/10 w-full">
-								<td className="py-1.5 pl-5 text-sm border-b">
+							<tr
+								key={item.email}
+								className={`w-full ${
+									theme === "dark"
+										? "hover:bg-darkBg/50"
+										: "hover:bg-slate-300/10"
+								}`}
+							>
+								<td
+									className={`py-1.5 pl-5 text-sm border-b ${
+										theme === "dark" ? "border-white/10" : ""
+									}`}
+								>
 									<img
 										src={item.photo}
 										alt={item.name.slice(0, 10) + "..."}
 										className="2xl:w-16 w-12 aspect-square object-cover object-top rounded-full"
 									/>
 								</td>
-								<td className="py-1.5 pl-5 text-sm border-b capitalize">
+								<td
+									className={`py-1.5 pl-5 text-sm border-b capitalize ${
+										theme === "dark" ? "border-white/10" : ""
+									}`}
+								>
 									{item.name}
 								</td>
-								<td className="py-1.5 pl-5 text-sm border-b">{item.amount}</td>
-								<td className="py-1.5 pl-5 text-sm border-b">
+								<td
+									className={`py-1.5 pl-5 text-sm border-b ${
+										theme === "dark" ? "border-white/10" : ""
+									}`}
+								>
+									{item.amount}
+								</td>
+								<td
+									className={`py-1.5 pl-5 text-sm border-b ${
+										theme === "dark" ? "border-white/10" : ""
+									}`}
+								>
 									{item.discount}
 								</td>
-								<td className="py-1.5 pl-5 text-sm border-b">
+								<td
+									className={`py-1.5 pl-5 text-sm border-b ${
+										theme === "dark" ? "border-white/10" : ""
+									}`}
+								>
 									{item.quantity}
 								</td>
-								<td className="py-3 text-center text-sm border-b">
+								<td
+									className={`py-3 text-center text-sm border-b ${
+										theme === "dark" ? "border-white/10" : ""
+									}`}
+								>
 									<span
 										className={`p-1.5 text-center text-xs 2xl:text-sm text-white w-24 capitalize rounded-md flex items-center justify-center mx-auto shadow-md ${
 											item.status === "processing" && "bg-red-500"
@@ -126,7 +170,11 @@ const Transactions = () => {
 										{item.status}
 									</span>
 								</td>
-							<td className="border-b px-5">
+								<td
+									className={`border-b px-5 ${
+										theme === "dark" ? "border-white/10" : ""
+									}`}
+								>
 									<span className="flex items-center gap-2">
 										<Link
 											to={`/transaction/${item.action}`}
@@ -151,7 +199,11 @@ const Transactions = () => {
 					<button
 						onClick={() => paginate(currentPage - 1)}
 						disabled={currentPage === 1}
-						className="bg-slate-300/20 p-2 rounded-full cursor-pointer text-xl flex items-center justify-center text-center hover:bg-slate-400/20 disabled:cursor-not-allowed disabled:text-zinc-400/80 disabled:bg-slate-300/20 disabled:hover:bg-slate-300/20"
+						className={`p-2 rounded-full disabled:cursor-not-allowed cursor-pointer text-xl flex items-center justify-center text-center ${
+							theme === "dark"
+								? "bg-white hover:bg-white/80 disabled:bg-white/10 disabled:text-white/20 text-black"
+								: "bg-slate-300/20 hover:bg-slate-400/20 disabled:text-zinc-400/80 disabled:bg-slate-300/20 disabled:hover:bg-slate-300/20"
+						}`}
 					>
 						<RiArrowLeftSLine />
 					</button>
@@ -161,7 +213,11 @@ const Transactions = () => {
 					<button
 						onClick={() => paginate(currentPage + 1)}
 						disabled={indexOfLastItem >= sortedData.length}
-						className="bg-slate-300/20 p-2 rounded-full cursor-pointer text-xl flex items-center justify-center text-center hover:bg-slate-400/20 disabled:cursor-not-allowed disabled:text-zinc-400/80 disabled:bg-slate-300/20 disabled:hover:bg-slate-300/20"
+						className={`p-2 rounded-full disabled:cursor-not-allowed cursor-pointer text-xl flex items-center justify-center text-center ${
+							theme === "dark"
+								? "bg-white hover:bg-white/80 disabled:bg-white/10 disabled:text-white/20 text-black"
+								: "bg-slate-300/20 hover:bg-slate-400/20 disabled:text-zinc-400/80 disabled:bg-slate-300/20 disabled:hover:bg-slate-300/20"
+						}`}
 					>
 						<RiArrowRightSLine />
 					</button>

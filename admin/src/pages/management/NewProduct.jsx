@@ -3,10 +3,14 @@ import { useLocation, useParams } from "react-router-dom";
 import { TbPhotoPlus } from "react-icons/tb";
 
 import data from "../../data/data.json";
+import { selectTheme } from "../../store/slices/themeSlice";
+import { useSelector } from "react-redux";
 
 const NewProduct = () => {
 	const { pathname } = useLocation();
 	const { id } = useParams();
+
+	const theme = useSelector(selectTheme);
 
 	const [newProduct, setNewProduct] = useState({
 		name: "",
@@ -46,7 +50,14 @@ const NewProduct = () => {
 	};
 
 	return (
-		<section className="py-6 w-full flex flex-col gap-4 bg-white shadow-lg shadow-slate-400/5 bg-orange-500/10 rounded-lg">
+		<section
+			className={`py-6 w-full flex flex-col gap-4 rounded-lg ${
+				theme === "dark"
+					? "bg-darkColor text-white"
+					: "bg-white shadow-lg shadow-slate-400/5"
+			}
+		`}
+		>
 			<div className="px-5 pb-5 border-b">
 				<h2 className="font-semibold text-lg">
 					{pathname.includes("new") ? "Add New Product" : "Edit Product"}
@@ -78,7 +89,11 @@ const NewProduct = () => {
 							/>
 						) : (
 							<>
-								<span className="text-[3.5rem] md:text-6xl opacity-60">
+								<span
+									className={`text-[3.5rem] md:text-6xl ${
+										theme !== "dark" && "opacity-60"
+									}`}
+								>
 									<TbPhotoPlus />
 								</span>
 								<h4 className="font-semibold text-blue-500 gilroy-semibold">
@@ -105,7 +120,9 @@ const NewProduct = () => {
 								value={newProduct?.action}
 								onChange={handleChange}
 								disabled
-								className="border disabled:opacity-50 disabled:cursor-not-allowed px-3 py-3.5 rounded-lg outline-none 2xl:text-base md:text-[.9rem] text-sm"
+								className={`border disabled:cursor-not-allowed px-3 py-3.5 rounded-lg outline-none 2xl:text-base md:text-[.9rem] text-sm ${
+									theme === "dark" ? "disabled:opacity-15" : "disabled:opacity-50"
+								}`}
 							/>
 						</div>
 					)}
@@ -123,7 +140,9 @@ const NewProduct = () => {
 							placeholder="Enter product name"
 							value={newProduct.name}
 							onChange={handleChange}
-							className="border px-3 py-3.5 rounded-lg focus-within:border-blue-300 outline-none 2xl:text-base md:text-[.9rem] text-sm"
+							className={`border px-3 py-3.5 rounded-lg focus-within:border-blue-300 outline-none 2xl:text-base md:text-[.9rem] text-sm ${
+								theme === "dark" && "bg-darkColor text-white"
+							}`}
 						/>
 					</div>
 
@@ -141,7 +160,9 @@ const NewProduct = () => {
 							placeholder="Enter product price"
 							value={newProduct.price}
 							onChange={handleChange}
-							className="border px-3 py-3.5 rounded-lg focus-within:border-blue-300 outline-none 2xl:text-base text-sm"
+							className={`border px-3 py-3.5 rounded-lg focus-within:border-blue-300 outline-none 2xl:text-base text-sm
+							${theme === "dark" && "bg-darkColor text-white"}
+							`}
 						/>
 					</div>
 
@@ -159,13 +180,15 @@ const NewProduct = () => {
 							placeholder="Enter product stock"
 							value={newProduct.stock}
 							onChange={handleChange}
-							className="border px-3 py-3.5 rounded-lg focus-within:border-blue-300 outline-none 2xl:text-base text-sm"
+							className={`border px-3 py-3.5 rounded-lg focus-within:border-blue-300 outline-none 2xl:text-base text-sm ${
+								theme === "dark" && "bg-darkColor text-white"
+							}`}
 						/>
 					</div>
 
 					<button
 						type="submit"
-						className="bg-blue-500 text-white hover:bg-blue-600 py-3 px-5 rounded-lg capitalize"
+						className="bg-blue-600 text-white hover:bg-blue-700 py-3 px-5 rounded-lg capitalize"
 					>
 						add product
 					</button>

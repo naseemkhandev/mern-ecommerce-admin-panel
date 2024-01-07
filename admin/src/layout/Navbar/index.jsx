@@ -4,6 +4,8 @@ import { FaBell, FaUser } from "react-icons/fa";
 import { PiSunDimFill } from "react-icons/pi";
 import { RiMoonClearFill } from "react-icons/ri";
 import Search from "../../components/common/Search";
+import { useDispatch, useSelector } from "react-redux";
+import { selectTheme, toggleTheme } from "../../store/slices/themeSlice";
 
 const Navbar = () => {
 	const { pathname } = useLocation();
@@ -11,10 +13,21 @@ const Navbar = () => {
 
 	const currentRoute = pathSegments[pathSegments.length - 1];
 
-	const theme = "light";
+	const dispatch = useDispatch();
+	const theme = useSelector(selectTheme);
+
+	const handleThemeToggle = () => {
+		dispatch(toggleTheme());
+	};
 
 	return (
-		<div className="bg-white select-none py-3 px-3 sm:px-5 rounded-lg shadow-lg shadow-slate-400/5 flex items-center justify-between">
+		<div
+			className={`${
+				theme === "dark"
+					? "bg-darkColor text-white"
+					: "bg-white shadow-lg shadow-slate-400/5"
+			} select-none py-3 px-3 sm:px-5 rounded-lg flex items-center justify-between`}
+		>
 			<div className="flex items-center gap-2">
 				<span className="block lg:hidden text-xl p-2 rounded-full cursor-pointer hover:bg-slate-500/10">
 					<FiMenu />
@@ -26,7 +39,7 @@ const Navbar = () => {
 								currentRoute.length > 20
 									? currentRoute.slice(0, 20) + "..."
 									: currentRoute
-						}`}
+						  }`}
 				</h2>
 			</div>
 
@@ -42,11 +55,17 @@ const Navbar = () => {
 					<FaUser />
 				</span>
 				{theme === "light" ? (
-					<span className="bg-yellow-500/10 hover:bg-yellow-500/20 cursor-pointer text-yellow-500 p-2.5 rounded-md text-xl sm:text-2xl">
+					<span
+						onClick={handleThemeToggle}
+						className="bg-yellow-500/10 hover:bg-yellow-500/20 cursor-pointer text-yellow-500 p-2.5 rounded-md text-xl sm:text-2xl"
+					>
 						<PiSunDimFill />
 					</span>
 				) : (
-					<span className="bg-yellow-500/10 hover:bg-yellow-500/20 cursor-pointer text-yellow-500 p-2.5 rounded-md text-xl xl:text-2xl">
+					<span
+						onClick={handleThemeToggle}
+						className="bg-yellow-500/10 hover:bg-yellow-500/20 cursor-pointer text-yellow-500 p-2.5 rounded-md text-xl sm:text-2xl"
+					>
 						<RiMoonClearFill />
 					</span>
 				)}

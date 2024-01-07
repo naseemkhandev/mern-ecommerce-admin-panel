@@ -7,6 +7,8 @@ import { RiArrowLeftSLine, RiArrowRightSLine } from "react-icons/ri";
 import data from "../data/data.json";
 import { useMemo, useState } from "react";
 import { TiArrowSortedDown, TiArrowSortedUp } from "react-icons/ti";
+import { selectTheme } from "../store/slices/themeSlice";
+import { useSelector } from "react-redux";
 
 const Products = () => {
 	const [sortConfig, setSortConfig] = useState({ key: "", direction: "" });
@@ -14,6 +16,8 @@ const Products = () => {
 	const itemsPerPage = 7;
 
 	const columns = ["photo", "name", "price", "stock", "action"];
+
+	const theme = useSelector(selectTheme);
 
 	const sortedData = useMemo(() => {
 		let sortableData = [...data.products];
@@ -54,7 +58,13 @@ const Products = () => {
 	};
 
 	return (
-		<section className="pt-4 pb-2 whitespace-nowrap w-full flex flex-col gap-4 bg-white shadow-lg shadow-slate-400/5 bg-orange-500/10 rounded-lg">
+		<section
+			className={`pt-4 pb-2 whitespace-nowrap w-full flex flex-col gap-4 rounded-lg ${
+				theme === "dark"
+					? "bg-darkColor text-white"
+					: "bg-white shadow-lg shadow-slate-400/5"
+			}`}
+		>
 			<div className="px-5 pb-3 border-b flex items-center justify-between">
 				<h2 className="font-semibold text-lg">All Products</h2>
 				<Link
@@ -75,7 +85,9 @@ const Products = () => {
 							{columns.map((column) => (
 								<th
 									key={column}
-									className="font-semibold capitalize pl-5 pb-3 text-zinc-700 cursor-pointer"
+									className={`font-semibold capitalize pl-5 pb-3 cursor-pointer ${
+										theme !== "dark" && "text-zinc-700"
+									}`}
 									onClick={() => requestSort(column)}
 								>
 									<div className="flex items-center gap-1">
@@ -100,22 +112,53 @@ const Products = () => {
 
 					<tbody>
 						{currentItems.map((item) => (
-							<tr key={item.action} className="hover:bg-slate-300/10 w-full">
-								<td className="py-1.5 pl-5 text-sm border-b">
+							<tr
+								key={item.action}
+								className={`w-full ${
+									theme === "dark"
+										? "hover:bg-darkBg/50"
+										: "hover:bg-slate-300/10"
+								}`}
+							>
+								<td
+									className={`py-1.5 pl-5 text-sm border-b ${
+										theme === "dark" ? "border-white/10" : ""
+									}`}
+								>
 									<img
 										src={item.photo}
 										alt={item.name.slice(0, 10) + "..."}
 										className="2xl:w-20 w-16 aspect-square object-cover object-center"
 									/>
 								</td>
-								<td className="py-1.5 pl-5 text-sm border-b">
+								<td
+									className={`py-1.5 pl-5 text-sm border-b ${
+										theme === "dark" ? "border-white/10" : ""
+									}`}
+								>
 									{item.name.length > 40
 										? item.name.slice(0, 40) + "..."
 										: item.name}
 								</td>
-								<td className="py-1.5 pl-5 text-sm border-b">{item.price}</td>
-								<td className="py-1.5 pl-5 text-sm border-b">{item.stock}</td>
-								<td className="border-b px-5">
+								<td
+									className={`py-1.5 pl-5 text-sm border-b ${
+										theme === "dark" ? "border-white/10" : ""
+									}`}
+								>
+									{item.price}
+								</td>
+								<td
+									className={`py-1.5 pl-5 text-sm border-b ${
+										theme === "dark" ? "border-white/10" : ""
+									}`}
+								>
+									{item.stock}
+								</td>
+								<td
+									className={`border-b px-5 ${
+										theme === "dark" ? "border-white/10" : ""
+									}`}
+								>
 									<span className="flex items-center gap-2">
 										<Link
 											to={`/product/${item.action}`}
@@ -140,7 +183,11 @@ const Products = () => {
 					<button
 						onClick={() => paginate(currentPage - 1)}
 						disabled={currentPage === 1}
-						className="bg-slate-300/20 p-2 rounded-full cursor-pointer text-xl flex items-center justify-center text-center hover:bg-slate-400/20 disabled:cursor-not-allowed disabled:text-zinc-400/80 disabled:bg-slate-300/20 disabled:hover:bg-slate-300/20"
+						className={`p-2 rounded-full disabled:cursor-not-allowed cursor-pointer text-xl flex items-center justify-center text-center ${
+							theme === "dark"
+								? "bg-white hover:bg-white/80 disabled:bg-white/10 disabled:text-white/20 text-black"
+								: "bg-slate-300/20 hover:bg-slate-400/20 disabled:text-zinc-400/80 disabled:bg-slate-300/20 disabled:hover:bg-slate-300/20"
+						}`}
 					>
 						<RiArrowLeftSLine />
 					</button>
@@ -150,7 +197,11 @@ const Products = () => {
 					<button
 						onClick={() => paginate(currentPage + 1)}
 						disabled={indexOfLastItem >= sortedData.length}
-						className="bg-slate-300/20 p-2 rounded-full cursor-pointer text-xl flex items-center justify-center text-center hover:bg-slate-400/20 disabled:cursor-not-allowed disabled:text-zinc-400/80 disabled:bg-slate-300/20 disabled:hover:bg-slate-300/20"
+						className={`p-2 rounded-full cursor-pointer disabled:cursor-not-allowed text-xl flex items-center justify-center text-center ${
+							theme === "dark"
+								? "bg-white hover:bg-white/80 disabled:bg-white/10 disabled:text-white/20 text-black"
+								: "bg-slate-300/20 hover:bg-slate-400/20 disabled:text-zinc-400/80 disabled:bg-slate-300/20 disabled:hover:bg-slate-300/20"
+						}`}
 					>
 						<RiArrowRightSLine />
 					</button>

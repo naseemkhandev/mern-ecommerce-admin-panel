@@ -6,7 +6,10 @@ export default {
 			fontFamily: {
 				Poppins: ["Poppins"],
 			},
+			colors: {
+				darkBg: "#0B1437",
+				darkColor: "#111C44",
+			},
 		},
 	},
-	plugins: [],
 };

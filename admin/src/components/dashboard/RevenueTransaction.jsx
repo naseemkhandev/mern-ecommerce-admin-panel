@@ -1,8 +1,16 @@
+import { useSelector } from "react-redux";
+import { selectTheme } from "../../store/slices/themeSlice";
 import { BarChart } from "../common/Charts";
 
 const RevenueTransaction = () => {
+	const theme = useSelector(selectTheme);
+
 	return (
-		<section className="pt-5 pb-2 lg:h-full w-full xl:max-h-[24rem] xl:h-full 2xl:max-h-[36rem] flex flex-col gap-4 bg-white shadow-lg shadow-slate-400/5 bg-orange-500/10 rounded-lg">
+		<section
+			className={`pt-5 pb-2 lg:h-full w-full xl:max-h-[24rem] xl:h-full 2xl:max-h-[36rem] flex flex-col gap-4 rounded-lg 
+		${theme === "dark" ? "bg-darkColor text-white" : "bg-white shadow-lg shadow-slate-400/5"}
+		`}
+		>
 			<div className="px-5 pb-4 border-b">
 				<h2 className="font-semibold">Revenue & Transaction</h2>
 			</div>

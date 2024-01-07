@@ -2,11 +2,14 @@ import { useMemo, useState } from "react";
 import { TiArrowSortedDown, TiArrowSortedUp } from "react-icons/ti";
 
 import data from "../../data/data.json";
+import { useSelector } from "react-redux";
+import { selectTheme } from "../../store/slices/themeSlice";
 
 const columns = ["Id", "Quantity", "Discount", "Amount", "Status"];
 
 const TopTransaction = () => {
 	const [sortConfig, setSortConfig] = useState({ key: "", direction: "" });
+	const theme = useSelector(selectTheme);
 
 	const sortedData = useMemo(() => {
 		let sortableData = [...data.transaction];
@@ -37,11 +40,19 @@ const TopTransaction = () => {
 	};
 
 	return (
-		<section className="pt-5 pb-2 lg:h-full w-full max-h-[36rem] 2xl:max-h-[36rem] xl:h-full xl:max-h-[24rem] flex flex-col gap-4 bg-white shadow-lg shadow-slate-400/5 bg-orange-500/10 rounded-lg">
+		<section
+			className={`pt-5 pb-2 lg:h-full w-full xl:max-h-[24rem] xl:h-full 2xl:max-h-[36rem] flex flex-col gap-4 rounded-lg 
+		${
+			theme === "dark"
+				? "bg-darkColor text-white"
+				: "bg-white shadow-lg shadow-slate-400/5"
+		}
+		`}
+		>
+			{" "}
 			<div className="px-5 pb-4 border-b">
 				<h2 className="font-semibold">Top Transaction</h2>
 			</div>
-
 			<div className="flex flex-col gap-6 pb-2 h-full overflow-auto">
 				<table className="w-full select-none cursor-text">
 					<thead>
@@ -49,7 +60,9 @@ const TopTransaction = () => {
 							{columns.map((column) => (
 								<th
 									key={column}
-									className="font-semibold px-3 sm:px-0 pb-3 text-zinc-700 cursor-pointer"
+									className={`font-semibold px-3 sm:px-0 pb-3 cursor-pointer ${
+										theme === "dark" ? "text-white" : "text-zinc-700"
+									}`}
 									onClick={() => requestSort(column.toLowerCase())}
 								>
 									<div className="flex items-center justify-center gap-1">
@@ -71,18 +84,47 @@ const TopTransaction = () => {
 
 					<tbody>
 						{sortedData.map((item) => (
-							<tr key={item.id} className="hover:bg-slate-300/10">
-								<td className="p-3 text-center text-sm border-b">{item.id}</td>
-								<td className="py-3 text-center text-sm border-b">
+							<tr
+								key={item.id}
+								className={`${
+									theme === "dark"
+										? "hover:bg-darkBg/50"
+										: "hover:bg-slate-300/10"
+								}`}
+							>
+								<td
+									className={`p-3 text-center text-sm border-b
+								${theme === "dark" ? "border-white/10" : ""}
+								`}
+								>
+									{item.id}
+								</td>
+								<td
+									className={`py-3 text-center text-sm border-b ${
+										theme === "dark" ? "border-white/10" : ""
+									}`}
+								>
 									{item.quantity}
 								</td>
-								<td className="py-3 text-center text-sm border-b">
+								<td
+									className={`py-3 text-center text-sm border-b ${
+										theme === "dark" ? "border-white/10" : ""
+									}`}
+								>
 									{item.discount}
 								</td>
-								<td className="py-3 text-center text-sm border-b">
+								<td
+									className={`py-3 text-center text-sm border-b ${
+										theme === "dark" ? "border-white/10" : ""
+									}`}
+								>
 									{item.amount}
 								</td>
-								<td className="py-3 text-center text-sm border-b">
+								<td
+									className={`py-3 text-center text-sm border-b ${
+										theme === "dark" ? "border-white/10" : ""
+									}`}
+								>
 									<span
 										className={`p-1.5 text-center text-xs 2xl:text-sm text-white w-24 capitalize rounded-md flex items-center justify-center mx-auto shadow-md ${
 											item.status === "processing" && "bg-red-500"
