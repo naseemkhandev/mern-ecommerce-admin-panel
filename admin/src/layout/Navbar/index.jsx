@@ -5,7 +5,8 @@ import { PiSunDimFill } from "react-icons/pi";
 import { RiMoonClearFill } from "react-icons/ri";
 import Search from "../../components/common/Search";
 import { useDispatch, useSelector } from "react-redux";
-import { selectTheme, toggleTheme } from "../../store/slices/themeSlice";
+import { selectTheme, toggleTheme } from "../../store/slices/ThemeSlice";
+import { openMenu } from "../../store/slices/SidebarSlice";
 
 const Navbar = () => {
 	const { pathname } = useLocation();
@@ -29,7 +30,10 @@ const Navbar = () => {
 			} select-none py-3 px-3 sm:px-5 rounded-lg flex items-center justify-between`}
 		>
 			<div className="flex items-center gap-2">
-				<span className="block lg:hidden text-xl p-2 rounded-full cursor-pointer hover:bg-slate-500/10">
+				<span
+					onClick={() => dispatch(openMenu())}
+					className="block lg:hidden text-xl p-2 rounded-full cursor-pointer hover:bg-slate-500/10"
+				>
 					<FiMenu />
 				</span>
 				<h2 className="text-lg sm:text-xl capitalize font-semibold">
