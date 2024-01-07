@@ -43,7 +43,7 @@ const RootLayout = ({ children }) => {
 			<Sidebar />
 			<div className="p-3 pb-5 flex flex-col gap-3">
 				<LoadingBar
-					color="#2563eb"
+					color={`${theme === "dark" ? "#f43f5e" : "#4338ca"}`}
 					progress={progress}
 					height={3}
 					waitingTime={500}
